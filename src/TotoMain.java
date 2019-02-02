@@ -29,8 +29,8 @@ public class TotoMain {
 //          Download the numbers
 //        Изтегляне на числата
         drawingFirstNumbers(firstDraw1);
-        drawingSecondNumbers(secondDraw1);
-        drawingThirdNumbers(thirdDraw1);
+        drawingFirstNumbers(secondDraw1);
+        drawingFirstNumbers(thirdDraw1);
 
 //          Check for winning numbers
 //        Проверка за печеливши числа
@@ -41,8 +41,8 @@ public class TotoMain {
 //          Sorting in ascending order
 //        Подреждане във възходящ ред
         firstDrawOrdering = firstNumberOrdering(firstDraw1);
-        secondDrawOrdering = secondNumnerOrdering(secondDraw1);
-        thirdDrawOrdering = thirdNumberOrdering(thirdDraw1);
+        secondDrawOrdering = firstNumberOrdering(secondDraw1);
+        thirdDrawOrdering = firstNumberOrdering(thirdDraw1);
 
 //          Print downloaded numbers
 //        Отпечатване на изтеглените числа
@@ -141,55 +141,6 @@ public class TotoMain {
         return firstDraw;
     }
 
-    private static int[] drawingSecondNumbers(int[] secondDraw) {
-        Random rand = new Random();
-        for (int i = 0; i < secondDraw.length; i++) {
-            do {
-                secondDraw[i] = rand.nextInt(49) + 1;
-            } while (secondDraw[0] == secondDraw[1] || secondDraw[0] == secondDraw[2] ||
-                    secondDraw[0] == secondDraw[3] || secondDraw[0] == secondDraw[4] ||
-                    secondDraw[0] == secondDraw[5] || secondDraw[1] == secondDraw[0] ||
-                    secondDraw[1] == secondDraw[2] || secondDraw[1] == secondDraw[3] ||
-                    secondDraw[1] == secondDraw[4] || secondDraw[1] == secondDraw[5] ||
-                    secondDraw[2] == secondDraw[0] || secondDraw[2] == secondDraw[1] ||
-                    secondDraw[2] == secondDraw[3] || secondDraw[2] == secondDraw[4] ||
-                    secondDraw[2] == secondDraw[5] || secondDraw[3] == secondDraw[0] ||
-                    secondDraw[3] == secondDraw[1] || secondDraw[3] == secondDraw[2] ||
-                    secondDraw[3] == secondDraw[4] || secondDraw[3] == secondDraw[5] ||
-                    secondDraw[4] == secondDraw[0] || secondDraw[4] == secondDraw[1] ||
-                    secondDraw[4] == secondDraw[2] || secondDraw[4] == secondDraw[3] ||
-                    secondDraw[4] == secondDraw[5] || secondDraw[5] == secondDraw[0] ||
-                    secondDraw[5] == secondDraw[1] || secondDraw[5] == secondDraw[2] ||
-                    secondDraw[5] == secondDraw[3] || secondDraw[5] == secondDraw[4] ||
-                    secondDraw[i] != secondDraw[i]);
-        }
-        return secondDraw;
-    }
-
-    private static int[] drawingThirdNumbers(int[] thirdDraw) {
-        Random rand = new Random();
-        for (int i = 0; i < thirdDraw.length; i++) {
-            do {
-                thirdDraw[i] = rand.nextInt(49) + 1;
-            } while (thirdDraw[0] == thirdDraw[1] || thirdDraw[0] == thirdDraw[2] ||
-                    thirdDraw[0] == thirdDraw[3] || thirdDraw[0] == thirdDraw[4] ||
-                    thirdDraw[0] == thirdDraw[5] || thirdDraw[1] == thirdDraw[0] ||
-                    thirdDraw[1] == thirdDraw[2] || thirdDraw[1] == thirdDraw[3] ||
-                    thirdDraw[1] == thirdDraw[4] || thirdDraw[1] == thirdDraw[5] ||
-                    thirdDraw[2] == thirdDraw[0] || thirdDraw[2] == thirdDraw[1] ||
-                    thirdDraw[2] == thirdDraw[3] || thirdDraw[2] == thirdDraw[4] ||
-                    thirdDraw[2] == thirdDraw[5] || thirdDraw[3] == thirdDraw[0] ||
-                    thirdDraw[3] == thirdDraw[1] || thirdDraw[3] == thirdDraw[2] ||
-                    thirdDraw[3] == thirdDraw[4] || thirdDraw[3] == thirdDraw[5] ||
-                    thirdDraw[4] == thirdDraw[0] || thirdDraw[4] == thirdDraw[1] ||
-                    thirdDraw[4] == thirdDraw[2] || thirdDraw[4] == thirdDraw[3] ||
-                    thirdDraw[4] == thirdDraw[5] || thirdDraw[5] == thirdDraw[0] ||
-                    thirdDraw[5] == thirdDraw[1] || thirdDraw[5] == thirdDraw[2] ||
-                    thirdDraw[5] == thirdDraw[3] || thirdDraw[5] == thirdDraw[4] ||
-                    thirdDraw[i] != thirdDraw[i]);
-        }
-        return thirdDraw;
-    }
 
     private static int[] firstNumberOrdering(int[] firstDraw) {
         for (int i = 0; i < firstDraw.length; i++) {
@@ -197,7 +148,7 @@ public class TotoMain {
         }
         System.out.println();
         int[] drow = new int[6];
-        for (int i = 0; i < firstDraw.length; i++) {
+        for (int i = 0; i < drow.length; i++) {
             for (int j = 0; j < firstDraw.length; j++) {
                 if (firstDraw[j] > drow[i]) {
                     drow[i] = firstDraw[j];
@@ -215,57 +166,5 @@ public class TotoMain {
             j--;
         }
         return firstDraw;
-    }
-
-    private static int[] secondNumnerOrdering(int[] secondDraw) {
-        for (int i = 0; i < 6; i++) {
-            System.out.print(secondDraw[i] + " , ");
-        }
-        System.out.println();
-        int[] drow = new int[6];
-        for (int i = 0; i < secondDraw.length; i++) {
-            for (int j = 0; j < secondDraw.length; j++) {
-                if (secondDraw[j] > drow[i]) {
-                    drow[i] = secondDraw[j];
-                } else ;
-            }
-            for (int h = 0; h < secondDraw.length; h++) {
-                if (secondDraw[h] == drow[i]) {
-                    secondDraw[h] = 0;
-                }
-            }
-        }
-        int j = 5;
-        for (int i = 0; i < secondDraw.length; i++) {
-            secondDraw[i] = drow[j];
-            j--;
-        }
-        return secondDraw;
-    }
-
-    private static int[] thirdNumberOrdering(int[] thirdDraw) {
-        for (int i = 0; i < thirdDraw.length; i++) {
-            System.out.print(thirdDraw[i] + " , ");
-        }
-        System.out.println();
-        int[] drow = new int[6];
-        for (int i = 0; i < thirdDraw.length; i++) {
-            for (int j = 0; j < thirdDraw.length; j++) {
-                if (thirdDraw[j] > drow[i]) {
-                    drow[i] = thirdDraw[j];
-                } else ;
-            }
-            for (int h = 0; h < thirdDraw.length; h++) {
-                if (thirdDraw[h] == drow[i]) {
-                    thirdDraw[h] = 0;
-                }
-            }
-        }
-        int j = 5;
-        for (int i = 0; i < thirdDraw.length; i++) {
-            thirdDraw[i] = drow[j];
-            j--;
-        }
-        return thirdDraw;
     }
 }
