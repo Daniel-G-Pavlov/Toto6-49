@@ -6,62 +6,75 @@ public class TotoMain {
 
         int[] ChoiceOfTheNumbers = new int[6];
 
-        int[] FirstDraw = {50, 51, 52, 53, 54, 55};
-        int[] SecondDraw = {50, 51, 52, 53, 54, 55};
-        int[] ThirdDraw = {50, 51, 52, 53, 54, 55};
+        int[] firstDraw1 = {50, 51, 52, 53, 54, 55};
+        int[] secondDraw1 = {50, 51, 52, 53, 54, 55};
+        int[] thirdDraw1 = {50, 51, 52, 53, 54, 55};
 
-        int[] FirstDrawOrdering = new int[6];
-        int[] SecondDrawOrdering = new int[6];
-        int[] ThirdDrawOrdering = new int[6];
+        int[] firstDrawOrdering = new int[6];
+        int[] secondDrawOrdering = new int[6];
+        int[] thirdDrawOrdering = new int[6];
 
-        int HitTheFirstDraw = 0;
-        int HitTheSecondDraw = 0;
-        int HitTheThirdDraw = 0;
+        int hitTheFirstDraw = 0;
+        int hitTheSecondDraw = 0;
+        int hitTheThirdDraw = 0;
 
-        int HitTheFirstDraw1 = 0;
-        int HitTheSecondDraw1 = 0;
-        int HitTheThirdDraw1 = 0;
+        int hitTheFirstDraw1 = 0;
+        int hitTheSecondDraw1 = 0;
+        int hitTheThirdDraw1 = 0;
 
+//          Select numbers
+//        Избор на числа
         choiceOfNumer(ChoiceOfTheNumbers);
-        drawingFirstNumbers(FirstDraw);
-        drawingSecondNumbers(SecondDraw);
-        drawingThirdNumbers(ThirdDraw);
 
-        HitTheFirstDraw1 = youHitTheFirstNumber(ChoiceOfTheNumbers, FirstDraw, HitTheFirstDraw);
-        HitTheSecondDraw1 = youHitTheSecondNumber(ChoiceOfTheNumbers, SecondDraw, HitTheSecondDraw);
-        HitTheThirdDraw1 = youHitTheThirdNumber(ChoiceOfTheNumbers, ThirdDraw, HitTheThirdDraw);
+//          Download the numbers
+//        Изтегляне на числата
+        drawingFirstNumbers(firstDraw1);
+        drawingSecondNumbers(secondDraw1);
+        drawingThirdNumbers(thirdDraw1);
 
-        FirstDrawOrdering = firstNumberOrdering(FirstDraw);
-        SecondDrawOrdering = secondNumnerOrdering(SecondDraw);
-        ThirdDrawOrdering = thirdNumberOrdering(ThirdDraw);
+//          Check for winning numbers
+//        Проверка за печеливши числа
+        hitTheFirstDraw1 = youHitTheFirstNumber(ChoiceOfTheNumbers, firstDraw1, hitTheFirstDraw);
+        hitTheSecondDraw1 = youHitTheSecondNumber(ChoiceOfTheNumbers, secondDraw1, hitTheSecondDraw);
+        hitTheThirdDraw1 = youHitTheThirdNumber(ChoiceOfTheNumbers, thirdDraw1, hitTheThirdDraw);
 
+//          Sorting in ascending order
+//        Подреждане във възходящ ред
+        firstDrawOrdering = firstNumberOrdering(firstDraw1);
+        secondDrawOrdering = secondNumnerOrdering(secondDraw1);
+        thirdDrawOrdering = thirdNumberOrdering(thirdDraw1);
+
+//          Print downloaded numbers
+//        Отпечатване на изтеглените числа
         System.out.println();
-        for (int i = 0; i < 6; i++) {
-            System.out.print(FirstDraw[i] + " , ");
+        for (int i = 0; i < firstDraw1.length; i++) {
+            System.out.print(firstDraw1[i] + " , ");
         }
         System.out.println();
-        for (int i = 0; i < 6; i++) {
-            System.out.print(SecondDraw[i] + " , ");
+        for (int i = 0; i < secondDraw1.length; i++) {
+            System.out.print(secondDraw1[i] + " , ");
         }
         System.out.println();
-        for (int i = 0; i < 6; i++) {
-            System.out.print(ThirdDraw[i] + " , ");
+        for (int i = 0; i < thirdDraw1.length; i++) {
+            System.out.print(thirdDraw1[i] + " , ");
         }
         System.out.println();
 
-        System.out.println("Вие улучихте в първо теглене " + HitTheFirstDraw1 + " числа");
-        System.out.println("Вие улучихте в второ теглене " + HitTheSecondDraw1 + " числа");
-        System.out.println("Вие улучихте в трето теглене " + HitTheThirdDraw1 + " числа");
+//        Show profits
+//        Показване на печалбите
+        System.out.println("Вие улучихте в първо теглене " + hitTheFirstDraw1 + " числа");
+        System.out.println("Вие улучихте в второ теглене " + hitTheSecondDraw1 + " числа");
+        System.out.println("Вие улучихте в трето теглене " + hitTheThirdDraw1 + " числа");
 
         System.out.println("Вие бяхте избрали следните числа : ");
-        for (int i = 0; i < 6; i++) {
+        for (int i = 0; i < ChoiceOfTheNumbers.length; i++) {
             System.out.print(ChoiceOfTheNumbers[i] + " , ");
         }
     }
 
     private static int youHitTheFirstNumber(int[] choiceOfTheNumbers, int[] firstDraw, int hitTheFirstDraw) {
-        for (int i = 0; i < 6; i++) {
-            for (int j = 0; j < 6; j++) {
+        for (int i = 0; i < choiceOfTheNumbers.length; i++) {
+            for (int j = 0; j < firstDraw.length; j++) {
                 if (choiceOfTheNumbers[i] == firstDraw[j]) {
                     hitTheFirstDraw++;
                 }
@@ -71,8 +84,8 @@ public class TotoMain {
     }
 
     private static int youHitTheSecondNumber(int[] choiceOfTheNumbers, int[] SecondDraw, int hitTheSecondDraw) {
-        for (int i = 0; i < 6; i++) {
-            for (int j = 0; j < 6; j++) {
+        for (int i = 0; i < choiceOfTheNumbers.length; i++) {
+            for (int j = 0; j < SecondDraw.length; j++) {
                 if (choiceOfTheNumbers[i] == SecondDraw[j]) {
                     hitTheSecondDraw++;
                 }
@@ -82,8 +95,8 @@ public class TotoMain {
     }
 
     private static int youHitTheThirdNumber(int[] choiceOfTheNumbers, int[] ThirdDraw, int hitTheThirdDraw) {
-        for (int i = 0; i < 6; i++) {
-            for (int j = 0; j < 6; j++) {
+        for (int i = 0; i < choiceOfTheNumbers.length; i++) {
+            for (int j = 0; j < ThirdDraw.length; j++) {
                 if (choiceOfTheNumbers[i] == ThirdDraw[j]) {
                     hitTheThirdDraw++;
                 }
@@ -94,7 +107,7 @@ public class TotoMain {
 
     private static int[] choiceOfNumer(int[] choiceOfTheNumbers) {
         Scanner input = new Scanner(System.in);
-        for (int i = 0; i < 6; i++) {
+        for (int i = 0; i < choiceOfTheNumbers.length; i++) {
             System.out.print("Моля изберете число от 1 до 49 за позиция " + (i + 1) + " : ");
             choiceOfTheNumbers[i] = input.nextInt();
         }
@@ -103,7 +116,7 @@ public class TotoMain {
 
     private static int[] drawingFirstNumbers(int[] firstDraw) {
         Random rand = new Random();
-        for (int i = 0; i < 6; i++) {
+        for (int i = 0; i < firstDraw.length; i++) {
             do {
                 firstDraw[i] = rand.nextInt(49) + 1;
             } while (firstDraw[0] == firstDraw[1] || firstDraw[0] == firstDraw[2] ||
@@ -130,7 +143,7 @@ public class TotoMain {
 
     private static int[] drawingSecondNumbers(int[] secondDraw) {
         Random rand = new Random();
-        for (int i = 0; i < 6; i++) {
+        for (int i = 0; i < secondDraw.length; i++) {
             do {
                 secondDraw[i] = rand.nextInt(49) + 1;
             } while (secondDraw[0] == secondDraw[1] || secondDraw[0] == secondDraw[2] ||
@@ -155,7 +168,7 @@ public class TotoMain {
 
     private static int[] drawingThirdNumbers(int[] thirdDraw) {
         Random rand = new Random();
-        for (int i = 0; i < 6; i++) {
+        for (int i = 0; i < thirdDraw.length; i++) {
             do {
                 thirdDraw[i] = rand.nextInt(49) + 1;
             } while (thirdDraw[0] == thirdDraw[1] || thirdDraw[0] == thirdDraw[2] ||
@@ -178,81 +191,81 @@ public class TotoMain {
         return thirdDraw;
     }
 
-    private static int[] firstNumberOrdering(int[] FirstDraw) {
-        for (int i = 0; i < 6; i++) {
-            System.out.print(FirstDraw[i] + " , ");
+    private static int[] firstNumberOrdering(int[] firstDraw) {
+        for (int i = 0; i < firstDraw.length; i++) {
+            System.out.print(firstDraw[i] + " , ");
         }
         System.out.println();
         int[] drow = new int[6];
-        for (int i = 0; i < FirstDraw.length; i++) {
-            for (int j = 0; j < FirstDraw.length; j++) {
-                if (FirstDraw[j] > drow[i]) {
-                    drow[i] = FirstDraw[j];
+        for (int i = 0; i < firstDraw.length; i++) {
+            for (int j = 0; j < firstDraw.length; j++) {
+                if (firstDraw[j] > drow[i]) {
+                    drow[i] = firstDraw[j];
                 } else ;
             }
-            for (int h = 0; h < FirstDraw.length; h++) {
-                if (FirstDraw[h] == drow[i]) {
-                    FirstDraw[h] = 0;
+            for (int h = 0; h < firstDraw.length; h++) {
+                if (firstDraw[h] == drow[i]) {
+                    firstDraw[h] = 0;
                 }
             }
         }
         int j = 5;
-        for (int i = 0; i < FirstDraw.length; i++) {
-            FirstDraw[i] = drow[j];
+        for (int i = 0; i < firstDraw.length; i++) {
+            firstDraw[i] = drow[j];
             j--;
         }
-        return FirstDraw;
+        return firstDraw;
     }
 
-    private static int[] secondNumnerOrdering(int[] SecondDraw) {
+    private static int[] secondNumnerOrdering(int[] secondDraw) {
         for (int i = 0; i < 6; i++) {
-            System.out.print(SecondDraw[i] + " , ");
+            System.out.print(secondDraw[i] + " , ");
         }
         System.out.println();
         int[] drow = new int[6];
-        for (int i = 0; i < SecondDraw.length; i++) {
-            for (int j = 0; j < SecondDraw.length; j++) {
-                if (SecondDraw[j] > drow[i]) {
-                    drow[i] = SecondDraw[j];
+        for (int i = 0; i < secondDraw.length; i++) {
+            for (int j = 0; j < secondDraw.length; j++) {
+                if (secondDraw[j] > drow[i]) {
+                    drow[i] = secondDraw[j];
                 } else ;
             }
-            for (int h = 0; h < SecondDraw.length; h++) {
-                if (SecondDraw[h] == drow[i]) {
-                    SecondDraw[h] = 0;
+            for (int h = 0; h < secondDraw.length; h++) {
+                if (secondDraw[h] == drow[i]) {
+                    secondDraw[h] = 0;
                 }
             }
         }
         int j = 5;
-        for (int i = 0; i < SecondDraw.length; i++) {
-            SecondDraw[i] = drow[j];
+        for (int i = 0; i < secondDraw.length; i++) {
+            secondDraw[i] = drow[j];
             j--;
         }
-        return SecondDraw;
+        return secondDraw;
     }
 
-    private static int[] thirdNumberOrdering(int[] ThirdDraw) {
-        for (int i = 0; i < 6; i++) {
-            System.out.print(ThirdDraw[i] + " , ");
+    private static int[] thirdNumberOrdering(int[] thirdDraw) {
+        for (int i = 0; i < thirdDraw.length; i++) {
+            System.out.print(thirdDraw[i] + " , ");
         }
         System.out.println();
         int[] drow = new int[6];
-        for (int i = 0; i < ThirdDraw.length; i++) {
-            for (int j = 0; j < ThirdDraw.length; j++) {
-                if (ThirdDraw[j] > drow[i]) {
-                    drow[i] = ThirdDraw[j];
+        for (int i = 0; i < thirdDraw.length; i++) {
+            for (int j = 0; j < thirdDraw.length; j++) {
+                if (thirdDraw[j] > drow[i]) {
+                    drow[i] = thirdDraw[j];
                 } else ;
             }
-            for (int h = 0; h < ThirdDraw.length; h++) {
-                if (ThirdDraw[h] == drow[i]) {
-                    ThirdDraw[h] = 0;
+            for (int h = 0; h < thirdDraw.length; h++) {
+                if (thirdDraw[h] == drow[i]) {
+                    thirdDraw[h] = 0;
                 }
             }
         }
         int j = 5;
-        for (int i = 0; i < ThirdDraw.length; i++) {
-            ThirdDraw[i] = drow[j];
+        for (int i = 0; i < thirdDraw.length; i++) {
+            thirdDraw[i] = drow[j];
             j--;
         }
-        return ThirdDraw;
+        return thirdDraw;
     }
 }
